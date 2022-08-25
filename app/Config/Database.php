@@ -33,7 +33,7 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => '',
+        'username' => 'root',
         'password' => '',
         'database' => '',
         'DBDriver' => 'MySQLi',
@@ -59,7 +59,7 @@ class Database extends Config
     public $tests = [
         'DSN'         => '',
         'hostname'    => '127.0.0.1',
-        'username'    => '',
+        'username'    => 'root',
         'password'    => '',
         'database'    => ':memory:',
         'DBDriver'    => 'SQLite3',

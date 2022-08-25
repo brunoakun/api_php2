@@ -10,7 +10,18 @@ class HomeController extends ResourceController
         $response = [
             'status' => 500,
             "error" => true,
-            'messages' => 'Hola Mundo',
+            'messages' => 'llamada como api/  ',
+            'data' => ['(get) employee/list','(post) employee/add','(put) employee/update/num','...']
+        ];
+        return $this->respond($response);
+    }
+
+    public function myLista()
+    {
+        $response = [
+            'status' => 200,
+            "error" => false,
+            'messages' => 'Hola Lista',
             'data' => []
         ];
         return $this->respond($response);

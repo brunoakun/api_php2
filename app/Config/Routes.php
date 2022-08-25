@@ -36,20 +36,33 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'HomeController::index');
+$routes->get('/myLista', 'HomeController::myLista');
+
+
 
 $routes->group("api", ["namespace" => "App\Controllers\Api"] , function($routes){
 
     $routes->group("employee", function($routes){
-       $routes->get("list", "EmployeeController::listEmployee");
-       $routes->post("add", "EmployeeController::addEmployee");
-       $routes->get("show/(:num)", "EmployeeController::showEmployee/$1");
-       $routes->put("update/(:num)", "EmployeeController::updateEmployee/$1");
-       $routes->delete("delete/(:num)", "EmployeeController::deleteEmployee/$1");
-    });
+        $routes->get("list", "EmployeeController::listEmployee");
+        $routes->post("add", "EmployeeController::addEmployee");
+        $routes->get("show/(:num)", "EmployeeController::showEmployee/$1");
+        $routes->put("update/(:num)", "EmployeeController::updateEmployee/$1");
+        $routes->delete("delete/(:num)", "EmployeeController::deleteEmployee/$1");
+     });
 
+     $routes->group("book", function($routes){
+        $routes->get("list", "BookController::listBook");
+        $routes->post("add", "BookController::addBook");
+        $routes->get("show/(:num)", "BookController::showBook/$1");
+        $routes->put("update/(:num)", "BookController::updateBook/$1");
+        $routes->delete("delete/(:num)", "BookController::deleteBook/$1");
+     });
+  
     $routes->post("register", "UserController::register");
     $routes->post("login", "UserController::login");
     $routes->get("profile", "UserController::details");
+
+    
     
 });
 
